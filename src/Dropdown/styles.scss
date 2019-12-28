@@ -1,0 +1,120 @@
+@import '~Sass/_helpers.scss';
+
+.activeItem {
+    background-color: color(white);
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    line-height: 48px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 40px 0 15px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:before {
+        @include square(10px);
+        border-bottom: 1px solid color(tundora);
+        border-right: 1px solid color(tundora);
+        content: '';
+        margin-top: -7px;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: rotate(45deg);
+        transition: transform .3s, top .1s linear;
+        transform-origin: 50% 50%;
+
+        .opened & {
+            margin-top: -3px;
+            transform: rotate(225deg);
+        }
+    }
+
+    .disabled & {
+        background-color: color(gallery);
+        border-color: color(silver);
+        cursor: default;
+
+        &:before {
+            border-color: color(silver);
+        }
+    }
+    .opened & {
+        border-bottom-color: transparent;
+    }
+
+    @include media(tablet) {
+        line-height: 38px;
+    }
+}
+.content {
+    background: color(white);
+    border: 1px solid color(silver);
+    border-top: none;
+    box-sizing: border-box;
+    left: -1px;
+    position: absolute;
+    right: -1px;
+    top: 100%;
+    z-index: 2;
+
+    .disabled[class] &[class] {
+        background-color: color(gallery);
+        border-color: color(silver);
+    }
+    .error[class] &[class] {
+        border-color: color(red);
+    }
+}
+.dropdown {
+    border: 1px solid color(silver);
+    margin: 0 auto 15px auto;
+    position: relative;
+    text-align: left;
+    z-index: 1;
+
+    &:hover {
+        &, .content {
+            border-color: color(tundora);
+        }
+    }
+    &.disabled {
+        border-color: color(silver);
+        color: color(silver-chalice);
+    }
+    &.opened {
+        z-index: 3;
+    }
+    &.error {
+        border-color: color(red);
+    }
+}
+.item {
+    background-color: transparent;
+    cursor: pointer;
+    line-height: 50px;
+    padding: 0 15px;
+
+    &:hover {
+        background-color: color(gallery);
+    }
+    .disabled & {
+        cursor: default;
+    }
+
+    a {
+        display: block;
+    }
+    b {
+        color: color(california);
+    }
+}
+.list {
+    list-style: none;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0;
+}

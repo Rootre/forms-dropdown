@@ -1,0 +1,41 @@
+{
+  "name": "@rootre/forms-dropdown",
+  "version": "1.0.0",
+  "description": "Dropdown component AKA selectbox for various usages. Supports React hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf lib && yarn build:lib",
+    "build:lib": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rootre/forms-dropdown.git"
+  },
+  "keywords": [
+    "react",
+    "dropdown",
+    "selectbox",
+    "hooks"
+  ],
+  "author": "Ondřej Tůma <ondr@centrum.cz>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rootre/forms-dropdown/issues"
+  },
+  "homepage": "https://github.com/Rootre/forms-dropdown#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-jason": "^6.1.2",
+    "classnames": "^2.2.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
