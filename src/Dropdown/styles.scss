@@ -1,7 +1,5 @@
-@import '~Sass/_helpers.scss';
-
 .activeItem {
-    background-color: color(white);
+    background-color: #fff;
     cursor: pointer;
     display: block;
     font-size: 16px;
@@ -14,10 +12,10 @@
     white-space: nowrap;
 
     &:before {
-        @include square(10px);
-        border-bottom: 1px solid color(tundora);
-        border-right: 1px solid color(tundora);
+        border-bottom: 1px solid #4d4d4d;
+        border-right: 1px solid #4d4d4d;
         content: '';
+        height: 10px;
         margin-top: -7px;
         position: absolute;
         right: 15px;
@@ -25,6 +23,7 @@
         transform: rotate(45deg);
         transition: transform .3s, top .1s linear;
         transform-origin: 50% 50%;
+        width: 10px;
 
         .opened & {
             margin-top: -3px;
@@ -33,25 +32,25 @@
     }
 
     .disabled & {
-        background-color: color(gallery);
-        border-color: color(silver);
+        background-color: #ededed;
+        border-color: #ccc;
         cursor: default;
 
         &:before {
-            border-color: color(silver);
+            border-color: #ccc;
         }
     }
     .opened & {
         border-bottom-color: transparent;
     }
 
-    @include media(tablet) {
+    @media only screen and (min-width: 769px) {
         line-height: 38px;
     }
 }
 .content {
-    background: color(white);
-    border: 1px solid color(silver);
+    background: #fff;
+    border: 1px solid #ccc;
     border-top: none;
     box-sizing: border-box;
     left: -1px;
@@ -61,15 +60,15 @@
     z-index: 2;
 
     .disabled[class] &[class] {
-        background-color: color(gallery);
-        border-color: color(silver);
+        background-color: #ededed;
+        border-color: #ccc;
     }
     .error[class] &[class] {
-        border-color: color(red);
+        border-color: #f00;
     }
 }
 .dropdown {
-    border: 1px solid color(silver);
+    border: 1px solid #ccc;
     margin: 0 auto 15px auto;
     position: relative;
     text-align: left;
@@ -77,18 +76,18 @@
 
     &:hover {
         &, .content {
-            border-color: color(tundora);
+            border-color: #4d4d4d;
         }
     }
     &.disabled {
-        border-color: color(silver);
-        color: color(silver-chalice);
+        border-color: #ccc;
+        color: #aaa;
     }
     &.opened {
         z-index: 3;
     }
     &.error {
-        border-color: color(red);
+        border-color: #f00;
     }
 }
 .item {
@@ -98,7 +97,7 @@
     padding: 0 15px;
 
     &:hover {
-        background-color: color(gallery);
+        background-color: #ededed;
     }
     .disabled & {
         cursor: default;
@@ -108,7 +107,7 @@
         display: block;
     }
     b {
-        color: color(california);
+        color: #f5a007;
     }
 }
 .list {

@@ -1,6 +1,7 @@
 {
-  "presets": [["babel-preset-jason", { "runtime": false }]],
+  "presets": [
+    "@babel/preset-react"
+  ],
   "plugins": [
-    ["babel-plugin-transform-react-remove-prop-types", { "mode": "wrap" }]
   ]
 }
