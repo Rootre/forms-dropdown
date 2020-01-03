@@ -3,10 +3,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
-    // devtool: 'source-map',
-    mode: 'production',
     entry: {
         index: './src/index.js',
     },
@@ -18,11 +17,13 @@ module.exports = {
     },
     externals: {
         react: 'react',
+        'react-dom': 'react-dom',
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css',
@@ -55,5 +56,9 @@ module.exports = {
                 ],
             },
         ]
-    }
+    },
+    node: {
+        Buffer: false
+    },
+    devtool: 'source-map',
 };
