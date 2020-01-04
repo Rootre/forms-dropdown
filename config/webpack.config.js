@@ -10,10 +10,11 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '../lib'),
-        libraryTarget: 'commonjs',
+        libraryTarget: 'umd',
         library: 'formsDropdown',
         filename: '[name].js',
     },
+    target: 'node',
     externals: {
         react: 'react',
         'react-dom': 'react-dom',

@@ -1,3 +1,5 @@
 config/
 src/
 .babelrc
+.idea
+yarn.lock

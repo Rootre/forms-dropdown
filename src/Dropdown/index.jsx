@@ -1,7 +1,17 @@
 import React, {useEffect, useRef, useState} from 'react';
 import classNames from 'classnames';
 
-import styles from './styles.scss';
+//import styles from './styles.scss';
+const styles = {
+    activeItem: 'rootre_dropdown_active_item',
+    disabled: 'rootre_dropdown_disabled',
+    content: 'rootre_dropdown_content',
+    error: 'rootre_dropdown_error',
+    opened: 'rootre_dropdown_opened',
+    dropdown: 'rootre_dropdown_dropdown',
+    item: 'rootre_dropdown_item',
+    list: 'rootre_dropdown_list',
+};
 
 /**
  * Bare in mind that defined controllers override initial values
