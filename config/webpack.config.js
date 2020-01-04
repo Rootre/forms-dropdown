@@ -3,7 +3,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -11,7 +10,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '../lib'),
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs',
         library: 'formsDropdown',
         filename: '[name].js',
     },
@@ -23,7 +22,6 @@ module.exports = {
         extensions: ['.js', '.jsx'],
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css',
