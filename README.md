@@ -2,7 +2,7 @@
 
 Highly customizable and lightweight React dropdown component.
 
-# Installation and usage
+## Installation and usage
 
 With yarn
 ```
@@ -17,7 +17,7 @@ npm install @rootre/forms-dropdown
 
 Basic usage in project:
 
-```
+```js
 import React from 'react';
 import Dropdown from '@rootre/forms-dropdown';
 
@@ -45,7 +45,7 @@ export default function App() {
 Your item object can be anything, only mandatory field 
 is `label` key that is shown in component HTML.
 
-# Props
+## Props
 
 * `activeItemTemplate` (optional) - gets active item as a first param, returns React.Component
 * `afterChange` (optional) - triggered as side effect after item is changed, gets current item as a first argument, index as second
@@ -62,11 +62,11 @@ is `label` key that is shown in component HTML.
 * `labelKey` - default `label`
 * `placeholder`
 
-# Usage with controllers
+## Usage with controllers
 
 You can pass state hooks to control dropdown's behavior:
 
-```
+```js
 import React, {useState} from 'react';
 import Dropdown from '@rootre/forms-dropdown';
 
@@ -93,4 +93,4 @@ export default function App() {
         </div>
     );
 }
-``` 
+```
