@@ -20,6 +20,7 @@ Basic usage in project:
 ```js
 import React from 'react';
 import Dropdown from '@rootre/forms-dropdown';
+import '@rootre/forms-dropdown/lib/index.css';
 
 export default function App() {
     const items = [

@@ -1,12 +1,12 @@
 {
   "name": "@rootre/forms-dropdown",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Dropdown component AKA selectbox for various usages",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib/ dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "yarn clean && yarn build:lib && yarn build:lib:webpack",
+    "build": "yarn clean && yarn build:lib:webpack",
     "build:lib": "cross-env NODE_ENV=production babel src -d lib",
     "build:lib:webpack": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js"
   },

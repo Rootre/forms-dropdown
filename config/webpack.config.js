@@ -9,7 +9,7 @@ module.exports = {
         index: './src/index.js',
     },
     output: {
-        path: path.join(__dirname, '../dist'),
+        path: path.join(__dirname, '../lib'),
         libraryTarget: 'umd',
         library: 'formsDropdown',
         filename: '[name].js',
@@ -47,6 +47,7 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             esModule: true,
+                            modules: true,
                             publicPath: '../',
                         },
                     },
