@@ -38,7 +38,7 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                use: [{ loader: 'babel-loader' }],
+                use: [{loader: 'babel-loader'}],
             },
             {
                 test: /\.s?css$/,
@@ -47,11 +47,16 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             esModule: true,
-                            modules: true,
                             publicPath: '../',
                         },
                     },
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            importLoaders: 1,
+                        }
+                    },
                     'sass-loader',
                 ],
             },

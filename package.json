@@ -1,6 +1,6 @@
 {
   "name": "@rootre/forms-dropdown",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Dropdown component AKA selectbox for various usages",
   "main": "lib/index.js",
   "scripts": {
