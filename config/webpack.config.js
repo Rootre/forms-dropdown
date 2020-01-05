@@ -9,7 +9,7 @@ module.exports = {
         index: './src/index.js',
     },
     output: {
-        path: path.join(__dirname, '../lib'),
+        path: path.join(__dirname, '../dist'),
         libraryTarget: 'umd',
         library: 'formsDropdown',
         filename: '[name].js',

@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import classNames from 'classnames';
 
-//import styles from './styles.scss';
+import styles from './styles.scss';
+/*
 const styles = {
     activeItem: 'rootre_dropdown_active_item',
     disabled: 'rootre_dropdown_disabled',
@@ -12,14 +13,15 @@ const styles = {
     item: 'rootre_dropdown_item',
     list: 'rootre_dropdown_list',
 };
+*/
 
 /**
  * Bare in mind that defined controllers override initial values
  * @param {Function} [activeItemTemplate] - gets active item as a first param, returns React.Component
- * @param {Function} [afterChange] - triggered as side effect after item is changed, get current item as a first argument, index as second
+ * @param {Function} [afterChange] - triggered as side effect after item is changed, gets current item as a first argument, index as second
  * @param {Function} [afterOpen] - triggered as side effect after select is opened or closed, gets first argument boolean isOpen
  * @param {Object} [controllers] - custom controllers, has to respect useState hook api
- * @param {Function} [controllers.active] - controller for setting active index
+ * @param {Function} [controllers.active] - controller for setting active item
  * @param {Function} [controllers.open] - controller opening Dropdown
  * @param {Boolean} [disabled]
  * @param {Boolean} [hasError]
@@ -27,7 +29,7 @@ const styles = {
  * @param {Object} [initialItem] - which item from items arary should be selected
  * @param {Function} [itemTemplate] - gets item as a first param, returns React.Component
  * @param {Object[]} items
- * @param {String} [nameKey] - key of an item which should be shown in selectbox
+ * @param {String} [labelKey] - key of an item which should be shown in selectbox
  * @param {String} [placeholder]
  * @return {null|React.Component}
  * @constructor
@@ -47,7 +49,7 @@ export default function Dropdown(
         initialItem = null,
         itemTemplate = _itemTemplate,
         items = [],
-        nameKey = 'name',
+        labelKey = 'label',
         placeholder = '',
     }
 ) {
@@ -107,12 +109,12 @@ export default function Dropdown(
             [styles.opened]: isOpened,
         })}>
             <div className={styles.activeItem} onClick={handleOpen}>
-                {activeItemTemplate(activeItem ? activeItem[nameKey] : placeholder || '...')}
+                {activeItemTemplate(activeItem ? activeItem[labelKey] : placeholder || '...')}
             </div>
             {isOpened && (
                 <div className={styles.content}>
                     <div className={styles.list}>
-                        {items.map((item, index) => itemTemplate(item, handleSelect, index, nameKey))}
+                        {items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey))}
                     </div>
                 </div>
             )}
@@ -124,10 +126,10 @@ function _activeItemTemplate(label) {
     return <span>{label}</span>;
 }
 
-function _itemTemplate(item, handleSelect, index, nameKey) {
+function _itemTemplate(item, handleSelect, index, labelKey) {
     return (
         <div key={index} className={styles.item} onClick={() => handleSelect(item)}>
-            {_activeItemTemplate(item[nameKey])}
+            {_activeItemTemplate(item[labelKey])}
         </div>
     );
 }
