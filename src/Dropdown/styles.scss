@@ -1,4 +1,6 @@
-.activeItem {
+$prefix: 'RD-';
+
+.#{$prefix}activeItem {
     background-color: #fff;
     cursor: pointer;
     display: block;
@@ -25,13 +27,13 @@
         transform-origin: 50% 50%;
         width: 10px;
 
-        .opened & {
+        .#{$prefix}opened & {
             margin-top: -3px;
             transform: rotate(225deg);
         }
     }
 
-    .disabled & {
+    .#{$prefix}disabled & {
         background-color: #ededed;
         border-color: #ccc;
         cursor: default;
@@ -40,7 +42,7 @@
             border-color: #ccc;
         }
     }
-    .opened & {
+    .#{$prefix}opened & {
         border-bottom-color: transparent;
     }
 
@@ -48,7 +50,7 @@
         line-height: 38px;
     }
 }
-.content {
+.#{$prefix}content {
     background: #fff;
     border: 1px solid #ccc;
     border-top: none;
@@ -59,15 +61,15 @@
     top: 100%;
     z-index: 2;
 
-    .disabled[class] &[class] {
+    .#{$prefix}disabled[class] &[class] {
         background-color: #ededed;
         border-color: #ccc;
     }
-    .error[class] &[class] {
+    .#{$prefix}error[class] &[class] {
         border-color: #f00;
     }
 }
-.dropdown {
+.#{$prefix}dropdown {
     border: 1px solid #ccc;
     margin: 0 auto 15px auto;
     position: relative;
@@ -75,22 +77,22 @@
     z-index: 1;
 
     &:hover {
-        &, .content {
+        &, .#{$prefix}content {
             border-color: #4d4d4d;
         }
     }
-    &.disabled {
+    &.#{$prefix}disabled {
         border-color: #ccc;
         color: #aaa;
     }
-    &.opened {
+    &.#{$prefix}opened {
         z-index: 3;
     }
-    &.error {
+    &.#{$prefix}error {
         border-color: #f00;
     }
 }
-.item {
+.#{$prefix}item {
     background-color: transparent;
     cursor: pointer;
     line-height: 50px;
@@ -99,7 +101,7 @@
     &:hover {
         background-color: #ededed;
     }
-    .disabled & {
+    .#{$prefix}disabled & {
         cursor: default;
     }
 
@@ -110,7 +112,7 @@
         color: #f5a007;
     }
 }
-.list {
+.#{$prefix}list {
     list-style: none;
     margin: 0;
     max-height: 200px;

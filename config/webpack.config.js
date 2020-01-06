@@ -24,7 +24,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '../styles.css',
             chunkFilename: '[id].css',
             ignoreOrder: false,
         }),
@@ -53,7 +53,11 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
+                            /*
+                            modules: {
+                                localIdentName: '[contenthash:4]',
+                            },
+                            */
                             importLoaders: 1,
                         }
                     },

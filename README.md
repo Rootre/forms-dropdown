@@ -17,10 +17,10 @@ npm install @rootre/forms-dropdown
 
 Basic usage in project:
 
-```js
+```jsx harmony
 import React from 'react';
 import Dropdown from '@rootre/forms-dropdown';
-import '@rootre/forms-dropdown/lib/index.css';
+import '@rootre/forms-dropdown/styles.css';
 
 export default function App() {
     const items = [
@@ -48,28 +48,100 @@ is `label` key that is shown in component HTML.
 
 ## Props
 
-* `activeItemTemplate` (optional) - gets active item as a first param, returns React.Component
-* `afterChange` (optional) - triggered as side effect after item is changed, gets current item as a first argument, index as second
-* `afterOpen` (optional) - triggered as side effect after select is opened or closed, gets first argument boolean isOpen
-* `controllers` (optional) - object
-* `controllers.active` - controller for setting active item
-* `controllers.open` - controller for opening Dropdown
-* `disabled`
-* `hasError`
-* `initialIsOpened`
-* `initialItem`
-* `itemTemplate` (optional) - gets item as a first param, returns React.Component
-* `items`
-* `labelKey` - default `label`
-* `placeholder`
+#### activeItemTemplate: `(label: string) => React.Component`
+
+> default:
+
+```jsx harmony
+function _activeItemTemplate(label) {
+    return <span>{label}</span>;
+}
+```
+
+#### afterChange: `(item: object) => void`
+
+> default: () => {}
+
+#### afterOpen: `(isOpen: boolean) => void`
+
+> default: () => {}
+
+#### controllers: `object`
+#### controllers.active: `Array.<function>`
+
+> default: `React.useState()`
+
+Controller for getting/setting active item
+
+#### controllers.open: `Array.<function>`
+
+> default: `React.useState()`
+
+Controller for opening/closing dropdown
+
+#### disabled: `boolean`
+
+> default: `false`
+
+Passing true renders the component disabled/unclickable
+
+#### hasError: `boolean`
+
+> default: `false`
+
+If true, an error class is added. Default styling paints borders in red 
+
+#### initialIsOpened: `boolean`
+
+> default: `false`
+
+If dropdown should be rendered open or not
+
+#### initialItem: `object`
+
+> default: `null`
+
+Item that will be shown on first render
+
+#### itemTemplate: `(item: object, handleSelect: function, index: number, labelKey: string) => React.Component`
+
+> default:
+```jsx harmony
+function _itemTemplate(item, handleSelect, index, labelKey) {
+    return (
+        <div key={index} className={styles.item} onClick={() => handleSelect(item)}>
+            <span>{item[labelKey]}</span>
+        </div>
+    );
+}
+```
+
+#### items: `Array.<object>`
+
+> default: `[]`
+
+Can be array of any objects you want, but each object has to have `labelKey` property set
+
+#### labelKey: `string`
+
+> default: `label`
+
+Determines which item's object property will be used for rendering label inside dropdown 
+
+#### placeholder: `string`
+
+> default: `''`
+
+A placeholder text for dropdown
 
 ## Usage with controllers
 
 You can pass state hooks to control dropdown's behavior:
 
-```js
+```jsx harmony
 import React, {useState} from 'react';
 import Dropdown from '@rootre/forms-dropdown';
+import '@rootre/forms-dropdown/styles.css';
 
 export default function App() {
     const items = [
@@ -79,16 +151,20 @@ export default function App() {
         {label: 'Parrot'},
     ];
 
-    const activeItemController = useState();
+    const activeItemController = useState(items[0]); // bare in mind that controllers override initials
+    const openController = useState(false);
     const [, setActiveItem] = activeItemController;
+    const [, setOpen] = openController;
 
     return (
         <div>
             <button onClick={() => setActiveItem(items[2])}>Set Rabbit</button>
+            <button onClick={() => setOpen(true)}>Open dropdown</button>
             <Dropdown
                 items={items}
                 controllers={{
                     active: activeItemController,
+                    open: openController,
                 }}
             />
         </div>
