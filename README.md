@@ -69,13 +69,13 @@ function _activeItemTemplate(label) {
 #### controllers: `object`
 #### controllers.active: `Array.<function>`
 
-> default: `React.useState()`
+> default: `React.useState(null)`
 
 Controller for getting/setting active item
 
 #### controllers.open: `Array.<function>`
 
-> default: `React.useState()`
+> default: `React.useState(false)`
 
 Controller for opening/closing dropdown
 
