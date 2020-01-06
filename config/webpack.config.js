@@ -53,11 +53,9 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            /*
                             modules: {
                                 localIdentName: '[contenthash:4]',
                             },
-                            */
                             importLoaders: 1,
                         }
                     },
