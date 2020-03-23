@@ -54,7 +54,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                localIdentName: '[contenthash:4]',
+                                localIdentName: 'dropdown_[local]',
                             },
                             importLoaders: 1,
                         }
