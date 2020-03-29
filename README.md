@@ -3,7 +3,7 @@
 Generic and lightweight React dropdown component.
 
 
-## Installation and usage
+## Installation
 
 With yarn
 ```
@@ -16,7 +16,9 @@ or with npm
 npm install @rootre/forms-dropdown
 ```
 
-### Basic usage in project:
+## Usage
+
+### Basic usage:
 
 ```jsx harmony
 import React from 'react';
@@ -44,9 +46,12 @@ export default function App() {
 }
 ```
 
+Your item object can be anything, only mandatory field 
+is `label` key that is shown in component HTML.
+
 ### Usage with controllers:
 
-You can pass state hooks to control dropdown's behavior:
+You can pass react useState instances to control dropdown's behavior:
 
 ```jsx harmony
 import React, {useState} from 'react';
@@ -82,8 +87,16 @@ export default function App() {
 }
 ```
 
-Your item object can be anything, only mandatory field 
-is `label` key that is shown in component HTML.
+## Demo
+
+Check out basic [demo page](https://rootre.github.io/forms-dropdown/)
+
+### Note
+```text
+Controllers override initials, so if you want set controller 
+for active item (controllers.active) you set initial active item 
+in useState(initialItem)  
+```
 
 ## Props
 

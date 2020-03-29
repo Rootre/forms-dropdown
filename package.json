@@ -1,6 +1,6 @@
 {
   "name": "@rootre/forms-dropdown",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Dropdown component AKA selectbox for various usages",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --config config/webpack.config.dev.js",
     "build": "yarn clean && yarn build:lib",
-    "build:lib": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js"
+    "build:lib": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js",
+    "build:dev": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.dev.js",
+    "prepublishOnly": "yarn build && yarn publish:demo",
+    "deploy": "gh-pages -d examples/dist",
+    "publish:demo": "yarn build:dev && yarn deploy"
   },
   "repository": {
     "type": "git",
@@ -36,6 +40,7 @@
     "babel-loader": "^8.0.6",
     "cross-env": "^6.0.3",
     "css-loader": "^3.4.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.0.3",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",

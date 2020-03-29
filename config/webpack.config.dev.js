@@ -5,6 +5,10 @@ const root = path.join(__dirname, '../examples/src');
 
 module.exports = {
     entry: path.join(root, 'index.js'),
+    output: {
+        path: path.join(__dirname, '../examples/dist'),
+        filename: 'bundle.js'
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(root, 'index.html'),
