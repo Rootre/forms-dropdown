@@ -87,16 +87,16 @@ export default function App() {
 }
 ```
 
-## Demo
-
-Check out basic [demo page](https://rootre.github.io/forms-dropdown/)
-
 ### Note
 ```text
 Controllers override initials, so if you want set controller 
 for active item (controllers.active) you set initial active item 
 in useState(initialItem)  
 ```
+
+## Demo
+
+Check out basic [demo page](https://rootre.github.io/forms-dropdown/)
 
 ## Props
 
