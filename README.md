@@ -1,6 +1,7 @@
 # Dropdown component
 
-Highly customizable and lightweight React dropdown component.
+Generic and lightweight React dropdown component.
+
 
 ## Installation and usage
 
@@ -15,7 +16,7 @@ or with npm
 npm install @rootre/forms-dropdown
 ```
 
-Basic usage in project:
+### Basic usage in project:
 
 ```jsx harmony
 import React from 'react';
@@ -43,6 +44,44 @@ export default function App() {
 }
 ```
 
+### Usage with controllers:
+
+You can pass state hooks to control dropdown's behavior:
+
+```jsx harmony
+import React, {useState} from 'react';
+import Dropdown from '@rootre/forms-dropdown';
+import '@rootre/forms-dropdown/styles.css';
+
+export default function App() {
+    const items = [
+        {label: 'Cat'},
+        {label: 'Dog'},
+        {label: 'Rabbit'},
+        {label: 'Parrot'},
+    ];
+
+    const activeItemController = useState(items[0]); // bare in mind that controllers override initials
+    const openController = useState(false);
+    const [, setActiveItem] = activeItemController;
+    const [, setOpen] = openController;
+
+    return (
+        <div>
+            <button onClick={() => setActiveItem(items[2])}>Set Rabbit</button>
+            <button onClick={() => setOpen(true)}>Open dropdown</button>
+            <Dropdown
+                items={items}
+                controllers={{
+                    active: activeItemController,
+                    open: openController,
+                }}
+            />
+        </div>
+    );
+}
+```
+
 Your item object can be anything, only mandatory field 
 is `label` key that is shown in component HTML.
 
@@ -53,7 +92,7 @@ is `label` key that is shown in component HTML.
 > default:
 
 ```jsx harmony
-function _activeItemTemplate(label) {
+function activeItemTemplate(label) {
     return <span>{label}</span>;
 }
 ```
@@ -107,7 +146,7 @@ Item that will be shown on first render
 
 > default:
 ```jsx harmony
-function _itemTemplate(item, handleSelect, index, labelKey) {
+function itemTemplate(item, handleSelect, index, labelKey) {
     return (
         <div key={index} className={styles.item} onClick={() => handleSelect(item)}>
             <span>{item[labelKey]}</span>
@@ -133,41 +172,3 @@ Determines which item's object property will be used for rendering label inside 
 > default: `''`
 
 A placeholder text for dropdown
-
-## Usage with controllers
-
-You can pass state hooks to control dropdown's behavior:
-
-```jsx harmony
-import React, {useState} from 'react';
-import Dropdown from '@rootre/forms-dropdown';
-import '@rootre/forms-dropdown/styles.css';
-
-export default function App() {
-    const items = [
-        {label: 'Cat'},
-        {label: 'Dog'},
-        {label: 'Rabbit'},
-        {label: 'Parrot'},
-    ];
-
-    const activeItemController = useState(items[0]); // bare in mind that controllers override initials
-    const openController = useState(false);
-    const [, setActiveItem] = activeItemController;
-    const [, setOpen] = openController;
-
-    return (
-        <div>
-            <button onClick={() => setActiveItem(items[2])}>Set Rabbit</button>
-            <button onClick={() => setOpen(true)}>Open dropdown</button>
-            <Dropdown
-                items={items}
-                controllers={{
-                    active: activeItemController,
-                    open: openController,
-                }}
-            />
-        </div>
-    );
-}
-```
