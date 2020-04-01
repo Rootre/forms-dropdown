@@ -1,13 +1,14 @@
 {
   "name": "@rootre/forms-dropdown",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Dropdown component AKA selectbox for various usages",
   "main": "lib/index.js",
   "scripts": {
-    "clean": "rimraf lib/ styles.css*",
+    "clean": "rimraf lib/ styles.*",
+    "copy:styles": "cp src/Dropdown/styles.scss ./",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --config config/webpack.config.dev.js",
-    "build": "yarn clean && yarn build:lib",
+    "build": "yarn clean && yarn copy:styles && yarn build:lib",
     "build:lib": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js",
     "build:dev": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.dev.js",
     "prepublishOnly": "yarn build && yarn publish:demo",

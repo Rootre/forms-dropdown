@@ -87,12 +87,24 @@ export default function App() {
 }
 ```
 
-### Note
-```text
-Controllers override initials, so if you want set controller 
+#### Note
+
+> Controllers override initials, so if you want set controller 
 for active item (controllers.active) you set initial active item 
-in useState(initialItem)  
-```
+in `useState(initialItem)`
+
+### Styling
+
+Component classes are bundled via CSS modules and uses local ident name: `dropdown_[local]`
+
+You can import compiled css file:
+
+> import '@rootre/forms-dropdown/styles.css';
+
+Optionally, if you use override `itemTemplate` you can use 
+default `className={styles.item}` from original sass file:
+
+> import '@rootre/forms-dropdown/styles.scss';
 
 ## Demo
 
@@ -161,7 +173,7 @@ Item that will be shown on first render
 ```jsx harmony
 function itemTemplate(item, handleSelect, index, labelKey) {
     return (
-        <div key={index} className={styles.item} onClick={() => handleSelect(item)}>
+        <div key={index} onClick={() => handleSelect(item)}>
             <span>{item[labelKey]}</span>
         </div>
     );
