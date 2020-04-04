@@ -103,9 +103,7 @@ export default function Dropdown(
             </div>
             {isOpened && (
                 <div className={styles.content}>
-                    <div className={styles.list}>
-                        {itemsTemplate(items, handleSelect, labelKey, itemTemplate)}
-                    </div>
+                    {itemsTemplate(items, handleSelect, labelKey, itemTemplate)}
                 </div>
             )}
         </div>
@@ -125,5 +123,9 @@ function _itemTemplate(item, handleSelect, index, labelKey) {
 }
 
 function _itemsTemplate(items, handleSelect, labelKey, itemTemplate) {
-    return items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey));
+    return (
+        <div className={styles.list}>
+            {items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey))}
+        </div>
+    )
 }

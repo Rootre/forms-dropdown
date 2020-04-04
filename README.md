@@ -93,18 +93,32 @@ export default function App() {
 for active item (controllers.active) you set initial active item 
 in `useState(initialItem)`
 
-### Styling
+## Styling
 
 Component classes are bundled via CSS modules and uses local ident name: `dropdown_[local]`
 
-You can import compiled css file:
+### CSS file:
 
 > import '@rootre/forms-dropdown/styles.css';
 
-Optionally, if you use override `itemTemplate` you can use 
-default `className={styles.item}` from original sass file:
+Importing whole css file get you all basic formatting.
+
+Optionally, if you use overrides: `itemTemplate` or `itemsTemplate` you could use 
+defaults from original sass file:
+
+### Sass file:
 
 > import '@rootre/forms-dropdown/styles.scss';
+
+It gets you following defaults:
+
+```css
+.activeItem {} /* selected item */
+.content {} /* wrapping div of opened dropdown contents */
+.dropdown {} /* the whole dropdown */
+.item {} /* item in opened dropdown list */
+.list {} /* wrapping div of opened dropdown list */
+```
 
 ## Demo
 
@@ -182,12 +196,16 @@ function itemTemplate(item, handleSelect, index, labelKey) {
 
 Use for custom formatting items in dropdown
 
-#### itemsTemplate: `(items: object[], handleSelect: function, labelKey: string, itemTemplate: function) => React.Component[]`
+#### itemsTemplate: `(items: object[], handleSelect: function, labelKey: string, itemTemplate: function) => React.Component`
 
 > default:
 ```jsx harmony
 function itemsTemplate(items, handleSelect, labelKey, itemTemplate) {
-    return items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey));
+    return (
+        <div className={styles.list}>
+            {items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey))}
+        </div>
+    )
 }
 ```
 
