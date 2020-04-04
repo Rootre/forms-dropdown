@@ -16,6 +16,7 @@ import styles from './styles.scss';
  * @param {Boolean} [initialIsOpened]
  * @param {Object} [initialItem] - which item from items arary should be selected
  * @param {Function} [itemTemplate] - gets item as a first param, returns React.Component
+ * @param {Function} [itemsTemplate] - gets array of items as a first param, returns array of React.Component(s)
  * @param {Object[]} items
  * @param {String} [labelKey] - key of an item which should be shown in selectbox
  * @param {String} [placeholder]
@@ -36,6 +37,7 @@ export default function Dropdown(
         initialIsOpened = false,
         initialItem = null,
         itemTemplate = _itemTemplate,
+        itemsTemplate = _itemsTemplate,
         items = [],
         labelKey = 'label',
         placeholder = '',
@@ -102,7 +104,7 @@ export default function Dropdown(
             {isOpened && (
                 <div className={styles.content}>
                     <div className={styles.list}>
-                        {items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey))}
+                        {itemsTemplate(items, handleSelect, labelKey, itemTemplate)}
                     </div>
                 </div>
             )}
@@ -120,4 +122,8 @@ function _itemTemplate(item, handleSelect, index, labelKey) {
             <span>{item[labelKey]}</span>
         </div>
     );
+}
+
+function _itemsTemplate(items, handleSelect, labelKey, itemTemplate) {
+    return items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey));
 }

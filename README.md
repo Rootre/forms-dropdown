@@ -180,6 +180,19 @@ function itemTemplate(item, handleSelect, index, labelKey) {
 }
 ```
 
+Use for custom formatting items in dropdown
+
+#### itemsTemplate: `(items: object[], handleSelect: function, labelKey: string, itemTemplate: function) => React.Component[]`
+
+> default:
+```jsx harmony
+function itemsTemplate(items, handleSelect, labelKey, itemTemplate) {
+    return items.map((item, index) => itemTemplate(item, handleSelect, index, labelKey));
+}
+```
+
+Use if you want to override the whole list of items in dropdown
+
 #### items: `Array.<object>`
 
 > default: `[]`
