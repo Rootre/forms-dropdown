@@ -734,21 +734,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/sass-import-resolve/-/sass-import-resolve-1.0.0.tgz#32c3cdb2f7af3cd8f0dca357b592e7271f3831b5"
   integrity sha512-pH4KCsbtBLLe7eqUrw8brcuFO8IZlN36JjdKlOublibVdAIPHCzEnpBWOVUXK5sCf+DpBi8ZtuWtjF0srybdeA==
 
-"@rootre/forms-dropdown@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@rootre/forms-dropdown/-/forms-dropdown-1.3.1.tgz#aa4322c4b98f64897e5c849bfeec7f79b72ec2bc"
-  integrity sha512-nutnDrLBpnSawChXmONKdGZGI6ghJZM0+4f/MaNFmpztHJQGpauu195Fo4cMvwLWNHlZO9HNUKYqdHZQ8pToOw==
-  dependencies:
-    classnames "^2.2.6"
-
-"@rootre/forms-filtering-dropdown@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rootre/forms-filtering-dropdown/-/forms-filtering-dropdown-1.0.0.tgz#079484df9114a94b0ec7b32f805df76678398dea"
-  integrity sha512-/1mg993VMTQYxe58IwOACBIYeJOAwi+/H8PWcpBtBY36L8plF1TEnWDbd404p8v2gArkhtFRmNLLfS49ydAGbQ==
-  dependencies:
-    "@rootre/forms-dropdown" "^1.3.1"
-    classnames "^2.2.6"
-
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
