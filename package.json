@@ -32,6 +32,9 @@
     "url": "https://github.com/Rootre/forms-dropdown/issues"
   },
   "homepage": "https://github.com/Rootre/forms-dropdown#readme",
+  "resolutions": {
+    "acorn": "^6.4.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
