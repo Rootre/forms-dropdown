@@ -33,7 +33,9 @@
   },
   "homepage": "https://github.com/Rootre/forms-dropdown#readme",
   "resolutions": {
-    "acorn": "^6.4.1"
+    "acorn": "^6.4.1",
+    "minimist": "^1.2.3",
+    "kind-of": "^6.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
